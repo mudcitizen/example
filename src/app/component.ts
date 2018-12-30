@@ -7,6 +7,7 @@ import { Product } from "./product.model";
 })
 export class ProductComponent {
     model: Model = new Model();
+    counter:number = 1;
     constructor(ref: ApplicationRef) {
         (<any>window).appRef = ref;
         (<any>window).model = this.model;
@@ -18,4 +19,15 @@ export class ProductComponent {
         let product = this.getProductByPosition(position);
         return "p-2 " + (product.price < 50 ? "bg-info" : "bg-warning");
     }
+    getProduct(key: number): Product {
+        return this.model.getProduct(key);
+    }
+    getProducts(): Product[] {
+        return this.model.getProducts();
+    }
+    getProductCount(): number {
+        console.log("getProductCount invoked");
+        return this.getProducts().length;
+    }
+    targetName: string = "Kayak";
 }
