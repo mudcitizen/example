@@ -1,28 +1,35 @@
 // Import a few directives
-import { Directive, ElementRef, Attribute, Input, OnInit,OnChanges,SimpleChange } from "@angular/core";
+import {
+    Directive, ElementRef, Attribute, Input, Output,
+    OnChanges, SimpleChange, EventEmitter
+} from "@angular/core";
+
+import { Product } from "./product.model";
 
 @Directive({
     selector: "[pa-attr]",
 })
-export class PaAttrDirective implements OnInit, OnChanges {
-    
-    @Input("pa-attr")
-    bgClass:string; 
-    
-    constructor(private element: ElementRef,
-        @Attribute("pa-attr-name") private attrName:String
-        ) {}
+export class PaAttrDirective implements OnChanges {
 
-    ngOnInit() {
-        //console.log("ngOnInit",this.attrName);
-        this.element.nativeElement.classList.add(this.bgClass || "bg-success",
-            "text-white");
+    @Input("pa-attr")
+    bgClass: string;
+
+    @Input("pa-product")
+    theProduct: Product;
+
+    @Output("pa-category")
+    click = new EventEmitter<string>();
+
+    constructor(private element: ElementRef) {
+        this.element.nativeElement.addEventListener("click", e => {
+            if (this.theProduct != null) {
+                this.click.emit(this.theProduct.category);
+            }
+        });
     }
 
-    ngOnChanges(changes: {[property: string]: SimpleChange })
-    {    
+    ngOnChanges(changes: { [property: string]: SimpleChange }) {
         let change = changes["bgClass"];
-        console.log("ngOnChanges",this.attrName,JSON.stringify(change));
         let classList = this.element.nativeElement.classList;
         if (!change.isFirstChange() && classList.contains(change.previousValue)) {
             classList.remove(change.previousValue);
