@@ -18,6 +18,11 @@ export class PaAttrDirective implements OnChanges {
     theProduct: Product;
 
     @Output("pa-category")
+    /* Template binding target is (pa-category) 
+       Attr does click.emit(<payload>)
+       ie pa-category is the templates alias for the click
+       property
+    */
     click = new EventEmitter<string>();
 
     constructor(private element: ElementRef) {
