@@ -11,19 +11,20 @@ import { Product } from "./product.model";
     selector: "[pa-attr]",
 })
 export class PaAttrDirective {
-
     @Input("pa-attr")
     @HostBinding("class")
     bgClass: string;
 
     @Input("pa-product")
-    theProduct: Product;
+    product: Product;
 
     @Output("pa-category")
     click = new EventEmitter<string>();
 
-    @HostBinding("click")
+    @HostListener("click")
     triggerCustomEvent() {
-        this.click.emit(this.theProduct.category);
-    }
+        if (this.product != null) {
+            this.click.emit(this.product.category);
+        }
+}
 }
