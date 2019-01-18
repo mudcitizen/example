@@ -12,7 +12,7 @@ import { Product } from "./product.model";
 })
 export class PaAttrDirective {
     @Input("pa-attr")
-    @HostBinding("class")
+    @HostBinding("class") // binds bgClass to Host Element's class property
     bgClass: string;
 
     @Input("pa-product")
@@ -21,7 +21,8 @@ export class PaAttrDirective {
     @Output("pa-category")
     click = new EventEmitter<string>();
 
-    @HostListener("click")
+    @HostListener("click")  
+    // triggerCustomEvent runs when the host element is clicked
     triggerCustomEvent() {
         if (this.product != null) {
             this.click.emit(this.product.category);
