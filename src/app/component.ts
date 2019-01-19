@@ -9,10 +9,12 @@ import { ProductFormGroup } from "./form.model";
     templateUrl: "template.html"
 })
 export class ProductComponent {
+    showTable:boolean = false;
     model: Model = new Model();
     form: ProductFormGroup = new ProductFormGroup();
 
-    constructor() {
+    constructor(appRef:ApplicationRef) {
+        (<any>window).appRef = appRef;
         (<any>window).component = this;
     }
     getProduct(key: number): Product {
