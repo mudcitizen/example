@@ -12,6 +12,9 @@ export class ProductComponent {
     model: Model = new Model();
     form: ProductFormGroup = new ProductFormGroup();
 
+    constructor() {
+        (<any>window).component = this;
+    }
     getProduct(key: number): Product {
         return this.model.getProduct(key);
     }
