@@ -8,6 +8,8 @@ import { PaStructureDirective } from "./structure.directive";
 import { PaIteratorDirective } from "./iterator.directive"; 
 import { PaCellColor } from "./cellColor.directive";
 import { PaCellColorSwitcher } from "./cellColorSwitcher.directive"; 
+import { ProductTableComponent } from "./productTable.component";
+import { ProductFormComponent } from "./productForm.component"; 
 
 @NgModule({
     imports: [BrowserModule, FormsModule, ReactiveFormsModule],
@@ -15,6 +17,8 @@ import { PaCellColorSwitcher } from "./cellColorSwitcher.directive";
         PaIteratorDirective,
         PaCellColor,
         PaCellColorSwitcher,
+        ProductTableComponent,
+        ProductFormComponent,
         PaStructureDirective],
     bootstrap: [ProductComponent]
 })
