@@ -17,8 +17,6 @@ export class ProductTableComponent {
 
     }
 
-    showTable : boolean;   
-
     getProduct(key: number): Product {
         return this.dataModel.getProduct(key);
     }
