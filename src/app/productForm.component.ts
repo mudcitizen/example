@@ -1,9 +1,11 @@
 import { Component, Output, EventEmitter } from "@angular/core";
+import { ViewEncapsulation } from "@angular/core";
 import { Product } from "./product.model";
 import {ProductFormGroup} from "./form.model";
 @Component({
     selector: "paProductForm",
     templateUrl: "productForm.component.html",
+    encapsulation: ViewEncapsulation.Emulated,
     styleUrls: ["productForm.component.css"]
 })
 export class ProductFormComponent {
