@@ -15,7 +15,7 @@ export class ProductTableComponent {
 
     constructor(appRef:ApplicationRef){
         (<any>window).appRef = appRef;
-        (<any>window).prodTableComp = this;
+        (<any>window).prodTableComponent = this;
 
     }
 
