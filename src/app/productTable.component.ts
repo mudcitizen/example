@@ -28,5 +28,10 @@ export class ProductTableComponent {
     deleteProduct(key: number) {
         this.dataModel.deleteProduct(key);
     }
+
+    getCategories() : string[] {
+        return this.dataModel.getCategories();
+    }
+
  
 }

@@ -12,6 +12,17 @@ export class Model {
         this.dataSource.getData().forEach(p => this.products.push(p));
     }
 
+    getCategories(): string[] {
+        let categories: string[] = [];
+        this.getProducts().forEach(p => {
+            let cat : string = p.category;
+            let idx : number = categories.indexOf(cat);
+            if (categories.indexOf(p.category) == -1)
+                categories.push(p.category)
+        })
+        return categories;
+    }
+
     getProducts(): Product[] {
         return this.products;
     }
@@ -49,5 +60,5 @@ export class Model {
     swapProduct() {
         let p = this.products.shift();
         this.products.push(new Product(p.id, p.name, p.category, p.price));
-    }	
+    }
 }
