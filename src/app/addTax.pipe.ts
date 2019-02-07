@@ -9,7 +9,7 @@ export class PaAddTaxPipe {
         /*
         TS Type annotations are not known / enforced 
         by Angular @ run-time - so you need to coerce
-        stuff to the proper type
+        parms to the proper type
         */
         let valueNumber = Number.parseFloat(value);
         let rateNumber = rate == undefined ?
