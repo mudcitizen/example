@@ -1,8 +1,7 @@
 import { Component,Input, ApplicationRef } from "@angular/core";
 import { Model } from "./repository.model"
 import { Product } from "./product.model";
-import { ViewChildren, QueryList} from "@angular/core";
-import { PaCellColor } from "./cellColor.directive";
+import {DiscountService} from "./discount.service";
 
 @Component({
     selector: "paProductTable",
@@ -15,10 +14,8 @@ export class ProductTableComponent {
         this._taxRate = tr.trim();
     }
     get taxRate() : string {return this._taxRate;}
-    
-    dateObject: Date = new Date(2020, 1, 20);
-    dateString: string = "2020-02-20T00:00:00.000Z";
-    dateNumber: number = 1582156800000;
+        
+    discounter : DiscountService = new DiscountService();
     
     @Input("model")
     dataModel : Model;
