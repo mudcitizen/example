@@ -1,7 +1,6 @@
 import { Component,Input, ApplicationRef } from "@angular/core";
 import { Model } from "./repository.model"
 import { Product } from "./product.model";
-import {DiscountService} from "./discount.service";
 
 @Component({
     selector: "paProductTable",
@@ -15,8 +14,6 @@ export class ProductTableComponent {
     }
     get taxRate() : string {return this._taxRate;}
         
-    discounter : DiscountService = new DiscountService();
-    
     @Input("model")
     dataModel : Model;
 

@@ -13,13 +13,12 @@ import { ProductFormComponent } from "./productForm.component";
 import { PaToggleView } from "./toggleView.component";
 import { PaAddTaxPipe } from "./addTax.pipe";
 import { PaCategoryFilterPipe } from "./categoryFilter.pipe";
-import { LOCALE_ID } from "@angular/core";
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
 import { PaDiscountDisplayComponent } from "./discountDisplay.component";                                          
 import { PaDiscountEditorComponent } from "./discountEditor.component";
+import { DiscountService} from "./discount.service";
 
-registerLocaleData(localeFr); 
 
 
 @NgModule({
@@ -36,7 +35,7 @@ registerLocaleData(localeFr);
         PaDiscountDisplayComponent,
         PaDiscountEditorComponent,
         PaStructureDirective],
-       // providers: [{ provide: LOCALE_ID, useValue: "fr-FR" }],
+       providers: [DiscountService],
     bootstrap: [ProductComponent]
 })
 export class AppModule {}
