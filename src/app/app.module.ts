@@ -19,6 +19,7 @@ import { PaDiscountDisplayComponent } from "./discountDisplay.component";
 import { PaDiscountEditorComponent } from "./discountEditor.component";
 import { DiscountService} from "./discount.service";
 import { PaDiscountPipe } from "./discount.pipe";
+import { PaDiscountAmountDirective } from "./discountAmount.directive"
 
 
 
@@ -36,6 +37,7 @@ import { PaDiscountPipe } from "./discount.pipe";
         PaDiscountDisplayComponent,
         PaDiscountEditorComponent,
         PaDiscountPipe,
+        PaDiscountAmountDirective,
         PaStructureDirective],
        providers: [DiscountService],
     bootstrap: [ProductComponent]

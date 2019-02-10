@@ -4,6 +4,7 @@
         <th>Name</th>
         <th>Category</th>
         <th>Price</th>
+        <th>Discount</th>
         <th></th>
     </tr>
     <tr *paFor="let item of getProducts() ; let i = index; let odd = odd;
@@ -12,6 +13,10 @@
         <td style="vertical-align:middle">{{item.name}}</td>
         <td style="vertical-align:middle">{{item.category}}</td>
         <td style="vertical-align:middle">{{item.price | discount | currency:"USD":"symbol":"2.2-2" }}</td>
+        <td style="vertical-align:middle" [pa-price]="item.price"
+                #discount="discount">
+            {{ discount.discountAmount | currency:"USD":"symbol"}}
+        </td>
         <td class="text-xs-center">
             <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">
                 Delete
