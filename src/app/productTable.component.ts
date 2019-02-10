@@ -13,14 +13,10 @@ export class ProductTableComponent {
         this._taxRate = tr.trim();
     }
     get taxRate() : string {return this._taxRate;}
-        
-    @Input("model")
-    dataModel : Model;
-
-    constructor(appRef:ApplicationRef){
-        (<any>window).appRef = appRef;
+    
+    constructor(appRef:ApplicationRef,private dataModel: Model){
+        (<any>window).appRef = appRef,        
         (<any>window).prodTableComponent = this;
-
     }
 
     getProduct(key: number): Product {
