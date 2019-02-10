@@ -9,13 +9,12 @@ import { Product } from "./product.model";
 })
 export class ProductComponent {
 
-    model: Model = new Model();
-
     addProduct(p: Product) {
         this.model.saveProduct(p);
     }
 
-    constructor(appRef:ApplicationRef){
+    constructor(private model: Model,
+        appRef:ApplicationRef){
         (<any>window).appRef = appRef;
         (<any>window).ProductComponent = this;
     }
