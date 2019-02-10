@@ -22,6 +22,7 @@ import { PaDiscountPipe } from "./discount.pipe";
 import { PaDiscountAmountDirective } from "./discountAmount.directive"
 import { Model } from "./repository.model";
 import { SimpleDataSource } from "./datasource.model";
+import { LogService } from "./log.service";
 
 
 
@@ -43,6 +44,7 @@ import { SimpleDataSource } from "./datasource.model";
         PaStructureDirective],
        providers: [DiscountService, 
         SimpleDataSource, 
+        LogService,
         Model
     ],
     bootstrap: [ProductComponent]
