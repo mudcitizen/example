@@ -44,7 +44,7 @@ import { LogService } from "./log.service";
         PaStructureDirective],
        providers: [DiscountService, 
         SimpleDataSource, 
-        LogService,
+        { provide: LogService, useClass: LogService},
         Model
     ],
     bootstrap: [ProductComponent]
