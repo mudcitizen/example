@@ -28,15 +28,15 @@ export class PaDiscountAmountDirective {
         this.differ =
             this.keyValueDiffers.find(this.discount).create();
     }
-    
-    ngOnChanges(changes: { [property: string]: SimpleChange }) {
-        if (changes["originalPrice"] != null) {
+
+    ngDoCheck() {
+        if (this.differ.diff(this.discount) != null) {
             this.updateValue();
         }
     }
-    
-    ngDoCheck() {
-        if (this.differ.diff(this.discount) != null) {
+        
+    ngOnChanges(changes: { [property: string]: SimpleChange }) {
+        if (changes["originalPrice"] != null) {
             this.updateValue();
         }
     }
