@@ -23,6 +23,7 @@ import { PaDiscountAmountDirective } from "./discountAmount.directive"
 import { Model } from "./repository.model";
 import { SimpleDataSource } from "./datasource.model";
 import { LogService, LOG_SERVICE } from "./log.service";
+import { SpecialLogService } from  "./speciallogservice.service"
 
 
 
@@ -44,7 +45,7 @@ import { LogService, LOG_SERVICE } from "./log.service";
         PaStructureDirective],
        providers: [DiscountService, 
         SimpleDataSource, 
-        { provide: LOG_SERVICE, useClass: LogService},
+        { provide: LOG_SERVICE, useClass: SpecialLogService },        
         Model
     ],
     bootstrap: [ProductComponent]
