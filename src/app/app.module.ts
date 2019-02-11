@@ -45,7 +45,8 @@ import { SpecialLogService } from  "./speciallogservice.service"
         PaStructureDirective],
        providers: [DiscountService, 
         SimpleDataSource, 
-        { provide: LOG_SERVICE, useClass: SpecialLogService },        
+        { provide: LOG_SERVICE, useClass: LogService, multi: true },
+        { provide: LOG_SERVICE, useClass: SpecialLogService, multi: true },
         Model
     ],
     bootstrap: [ProductComponent]
