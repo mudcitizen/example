@@ -22,7 +22,7 @@ import { PaDiscountPipe } from "./discount.pipe";
 import { PaDiscountAmountDirective } from "./discountAmount.directive"
 import { Model } from "./repository.model";
 import { SimpleDataSource } from "./datasource.model";
-import { LogService, LOG_SERVICE, LogLevel } from "./log.service";
+import { LogService, LogLevel } from "./log.service";
 import { SpecialLogService } from  "./speciallogservice.service"
 
 let logger = new LogService();
@@ -46,7 +46,7 @@ logger.minimumLevel = LogLevel.DEBUG;
         PaStructureDirective],
        providers: [DiscountService, 
         SimpleDataSource, 
-        { provide: LOG_SERVICE, useValue: logger },
+        { provide: LogService, useValue: logger },
         Model
     ],
     bootstrap: [ProductComponent]
