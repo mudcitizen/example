@@ -22,10 +22,11 @@ import { PaDiscountPipe } from "./discount.pipe";
 import { PaDiscountAmountDirective } from "./discountAmount.directive"
 import { Model } from "./repository.model";
 import { SimpleDataSource } from "./datasource.model";
-import { LogService, LOG_SERVICE } from "./log.service";
+import { LogService, LOG_SERVICE, LogLevel } from "./log.service";
 import { SpecialLogService } from  "./speciallogservice.service"
 
-
+let logger = new LogService();
+logger.minimumLevel = LogLevel.DEBUG;
 
 @NgModule({
     imports: [BrowserModule, FormsModule, ReactiveFormsModule],
@@ -45,8 +46,7 @@ import { SpecialLogService } from  "./speciallogservice.service"
         PaStructureDirective],
        providers: [DiscountService, 
         SimpleDataSource, 
-        { provide: LOG_SERVICE, useClass: LogService, multi: true },
-        { provide: LOG_SERVICE, useClass: SpecialLogService, multi: true },
+        { provide: LOG_SERVICE, useValue: logger },
         Model
     ],
     bootstrap: [ProductComponent]
