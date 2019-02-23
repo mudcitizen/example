@@ -7,7 +7,23 @@ export enum LogLevel {
 }
 @Injectable()
 export class LogService {
-    minimumLevel: LogLevel = LogLevel.INFO;
+
+    private first : boolean = true;
+    private _minimumLevel : LogLevel = LogLevel.INFO;
+
+    constructor() { this.minimumLevel = LogLevel.INFO}
+    set minimumLevel(level : LogLevel) {
+        console.log("LogService CTOR",level)
+        this._minimumLevel = level;
+    }
+    get minimumLevel()  : LogLevel {
+        if (this.first)
+        {
+            this.first = false;
+        }
+        return this._minimumLevel;
+    }
+
     logInfoMessage(message: string) {
         this.logMessage(LogLevel.INFO, message);
     }

@@ -26,8 +26,6 @@ import { LogService, LogLevel } from "./log.service";
 import { LOG_LEVEL } from "./log.service";
 import { SpecialLogService } from "./speciallogservice.service"
 
-let logger = new LogService();
-logger.minimumLevel = LogLevel.DEBUG;
 
 @NgModule({
     imports: [BrowserModule, FormsModule, ReactiveFormsModule],

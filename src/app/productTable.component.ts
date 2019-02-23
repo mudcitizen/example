@@ -1,9 +1,11 @@
 import { Component,Input, ApplicationRef } from "@angular/core";
 import { Model } from "./repository.model"
 import { Product } from "./product.model";
+import { LogService } from "./log.service"; 
 
 @Component({
     selector: "paProductTable",
+    providers:[LogService],
     templateUrl: "productTable.component.html"
 })
 export class ProductTableComponent {
