@@ -13,10 +13,6 @@ export class PaCellColorSwitcher {
     
     @Input("paCellDarkColor")
     modelProperty: Boolean;
-
-    constructor() {
-        console.log("PaCellColorSwitcher CTOR")
-    }
     
     @ContentChildren(PaCellColor)
     contentChildren: QueryList<PaCellColor>;

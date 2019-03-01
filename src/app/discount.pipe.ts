@@ -8,6 +8,8 @@ import {LogService } from "./log.service";
 export class PaDiscountPipe {
     constructor(private logger: LogService,private discount: DiscountService) { }
     transform(price: number): number {
+        if (price >= 100)
+          this.logger.logInfoMessage(`Large price discounted: ${price}`)
         return this.discount.applyDiscount(price);
     }
 }

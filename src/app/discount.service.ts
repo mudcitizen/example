@@ -5,7 +5,10 @@ import { LogService,LogLevel } from "./log.service";
 export class DiscountService {
     private discountValue: number = 10;
     
-    constructor(private logger: LogService) {}
+    constructor(private logger: LogService) {
+        let level = this.logger.minimumLevel;
+        console.log("DiscountService",logger.getObjectId(),level,LogLevel[level])
+    }
 
     public get discount(): number {
         return this.discountValue;
@@ -14,7 +17,7 @@ export class DiscountService {
         this.discountValue = newValue || 0;
     }
     public applyDiscount(price: number) {
-        this.logger.logInfoMessage(`Discount ${this.discount}`
+        this.logger.logDebugMessage(`Discount ${this.discount}`
         + ` applied to price: ${price}`);
         return Math.max(price - this.discountValue, 5);
     }

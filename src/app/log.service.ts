@@ -8,20 +8,23 @@ export enum LogLevel {
 @Injectable()
 export class LogService {
 
-    private first : boolean = true;
-    private _minimumLevel : LogLevel = LogLevel.INFO;
+    private objectId:number = Math.random();
 
-    constructor() { this.minimumLevel = LogLevel.INFO}
+    getObjectId(): number {return this.objectId;}
+
+    private _minimumLevel : LogLevel = LogLevel.INFO;
     set minimumLevel(level : LogLevel) {
-        console.log("LogService CTOR",level)
+        console.log("Setting LogService.minimum",this.objectId,level)
         this._minimumLevel = level;
     }
     get minimumLevel()  : LogLevel {
-        if (this.first)
-        {
-            this.first = false;
-        }
         return this._minimumLevel;
+    }
+
+    constructor() { 
+        this.minimumLevel = LogLevel.INFO
+        this.objectId = Math.random();
+        console.log("LogService CTOR",this.objectId);
     }
 
     logInfoMessage(message: string) {
