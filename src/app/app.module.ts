@@ -24,7 +24,8 @@ import { Model } from "./repository.model";
 import { SimpleDataSource } from "./datasource.model";
 import { LogService, LogLevel } from "./log.service";
 import { LOG_LEVEL } from "./log.service";
-import { SpecialLogService } from "./speciallogservice.service"
+import { SpecialLogService } from "./speciallogservice.service";
+import { VALUE_SERVICE, PaDisplayValueDirective } from "./valueDisplay.directive";
 
 
 @NgModule({
@@ -42,19 +43,12 @@ import { SpecialLogService } from "./speciallogservice.service"
         PaDiscountEditorComponent,
         PaDiscountPipe,
         PaDiscountAmountDirective,
+        PaDisplayValueDirective,
         PaStructureDirective],
     providers: [DiscountService,
         SimpleDataSource,
-        { provide: LOG_LEVEL, useValue: LogLevel.DEBUG },
-        {
-            provide: LogService, 
-            deps: [LOG_LEVEL], 
-            useFactory: (level) => {
-                let logger = new LogService();
-                logger.minimumLevel = level;
-                return logger;
-            }
-        },
+        LogService,
+        { provide: VALUE_SERVICE , useValue: "Apples" },
         Model
     ],
     bootstrap: [ProductComponent]

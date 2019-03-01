@@ -3,9 +3,12 @@ import { Product } from "./product.model";
 import {ProductFormGroup} from "./form.model";
 import { Model } from "./repository.model";
 import {LogService,LogLevel } from "./log.service";
+import { VALUE_SERVICE } from "./valueDisplay.directive"; 
+
 @Component({
     selector: "paProductForm",
-    templateUrl: "productForm.component.html"
+    providers: [{ provide: VALUE_SERVICE, useValue: "Oranges" }],
+    templateUrl: "productForm.component.html"    
 })
 export class ProductFormComponent {
     form: ProductFormGroup = new ProductFormGroup();
