@@ -1,26 +1,26 @@
-import { Component, Output, EventEmitter } from "@angular/core";
+import { Component,Inject,SkipSelf } from "@angular/core";
+import { ProductFormGroup } from "./form.model";
+import { LogLevel, LogService } from "./log.service";
 import { Product } from "./product.model";
-import {ProductFormGroup} from "./form.model";
 import { Model } from "./repository.model";
-import {LogService,LogLevel } from "./log.service";
-import { VALUE_SERVICE } from "./valueDisplay.directive"; 
+import { VALUE_SERVICE } from "./valueDisplay.directive";
 
 @Component({
     selector: "paProductForm",
     viewProviders: [{ provide: VALUE_SERVICE, useValue: "Oranges" }],
     templateUrl: "productForm.component.html"    
 })
-export class ProductFormComponent {
-    form: ProductFormGroup = new ProductFormGroup();
-    newProduct: Product = new Product();
-    formSubmitted: boolean = false;
-
-    
-    constructor(private model:Model, private logService:LogService) {
+export class ProductFormComponent {   
+    constructor(private model:Model, private logService:LogService,
+        @Inject(VALUE_SERVICE) @SkipSelf() private serviceValue: string) {
         let level:number = this.logService.minimumLevel;
-        console.log("ProductFormComponent",logService.getObjectId(),level,LogLevel[level])
+        console.log("ProductFormComponent - serviceValue",serviceValue)
       }
-    submitForm(form: any) {
+      form: ProductFormGroup = new ProductFormGroup();
+      newProduct: Product = new Product();
+      formSubmitted: boolean = false;
+  
+      submitForm(form: any) {
         this.formSubmitted = true;
         if (form.valid) {
             this.model.saveProduct(this.newProduct);
