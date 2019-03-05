@@ -20,16 +20,15 @@ import { PaDiscountEditorComponent } from "./discountEditor.component";
 import { DiscountService } from "./discount.service";
 import { PaDiscountPipe } from "./discount.pipe";
 import { PaDiscountAmountDirective } from "./discountAmount.directive"
-import { Model } from "./repository.model";
-import { SimpleDataSource } from "./datasource.model";
 import { LogService, LogLevel } from "./log.service";
 import { LOG_LEVEL } from "./log.service";
 import { SpecialLogService } from "./speciallogservice.service";
 import { VALUE_SERVICE, PaDisplayValueDirective } from "./valueDisplay.directive";
+import { ModelModule} from "./model/model.module";
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+    imports: [BrowserModule, FormsModule, ReactiveFormsModule,ModelModule],
     declarations: [ProductComponent, PaAttrDirective, PaModel,
         PaIteratorDirective,
         PaCellColor,
@@ -46,10 +45,8 @@ import { VALUE_SERVICE, PaDisplayValueDirective } from "./valueDisplay.directive
         PaDisplayValueDirective,
         PaStructureDirective],
     providers: [DiscountService,
-        SimpleDataSource,
         LogService,
-        { provide: VALUE_SERVICE , useValue: "Apples" },
-        Model
+        { provide: VALUE_SERVICE , useValue: "Apples" }
     ],
     bootstrap: [ProductComponent]
 })

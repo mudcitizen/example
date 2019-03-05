@@ -1,8 +1,8 @@
 import { Component,Inject,SkipSelf } from "@angular/core";
-import { ProductFormGroup } from "./form.model";
+import { ProductFormGroup } from "./model/form.model";
 import { LogLevel, LogService } from "./log.service";
-import { Product } from "./product.model";
-import { Model } from "./repository.model";
+import { Product } from "./model/product.model";
+import { Model } from "./model/repository.model";
 import { VALUE_SERVICE } from "./valueDisplay.directive";
 
 @Component({
