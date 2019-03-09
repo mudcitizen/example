@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { LogService, LogLevel } from './log.service';
 
 
 // debugger;
@@ -11,6 +10,4 @@ import { LogService, LogLevel } from './log.service';
 })
 export class AppComponent {
   title = 'app';
-
- 
 }
