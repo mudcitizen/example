@@ -1,7 +1,7 @@
 import { Component,Input, ApplicationRef } from "@angular/core";
-import { Model } from "./model/repository.model"
-import { Product } from "./model/product.model";
-import { LogService } from "./common/log.service"; 
+import { Model } from "../model/repository.model"
+import { Product } from "../model/product.model";
+import { LogService } from "../common/log.service"; 
 
 @Component({
     selector: "paProductTable",
